@@ -1,0 +1,3 @@
+unidecode
+django-tagging
+django-pagination
