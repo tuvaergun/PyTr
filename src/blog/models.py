@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from unidecode import unidecode
-from tagging.fields import TagField
+from tagging.fields import TagField, Tag
 
 class Categories(models.Model):
     # yazi basligi ve sef turu
@@ -44,7 +44,7 @@ class Posts(models.Model):
     sef_description = models.CharField(max_length=255, blank=True, editable=False)
 
     # kategori secimi
-    categories = models.ManyToManyField(Categories, verbose_name="Kategoriler", blank=True)
+    categories      = models.ManyToManyField(Categories, verbose_name="Kategoriler", blank=True)
 
     # yazi icerik kismi
     content         = models.TextField(verbose_name="Icerik")
@@ -78,4 +78,9 @@ class Posts(models.Model):
 
         self.sef_description = unidecode(self.description)
         super(Posts, self).save(*args, **kwargs)
+
+    def get_tags(self):
+        return Tag.objects.get_for_object(self)
+
+
 

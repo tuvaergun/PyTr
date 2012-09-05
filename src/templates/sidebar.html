@@ -10,16 +10,34 @@
             <p>Database    : <strong>PostgreSQL</strong> ve <strong>MongoDB</strong></p>
         </aside>
         <aside>
+            <h3>Son Yazilar</h3>
+            {% for post in posts %}
+                <ul>
+                    {% if post %}
+                        <li class="cat-item cat-item-53"><a href="{{ post.get_absolute_url }}" title="{{ post.sef_title }}">{{ post.title }}</a></li>
+                    {% endif %}
+                </ul>
+            {% endfor %}
+        </aside>
+        <aside>
             <h3>Kategoriler</h3>
-            <ul>
-                <li class="cat-item cat-item-53"><a href="#" title="#">Python</a> (5)</li>
-            </ul>
+            {% for category in categories %}
+                {% if category %}
+                    <ul>
+                        <li class="cat-item cat-item-53"><a href="{{ category.get_absolute_url }}" title="{{ category.sef_title }}">{{ category.title }}</a> </li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
         </aside>
         <aside>
             <h3>Etiketler</h3>
-            <ul>
-                <li><a href="#" title="#">python</a></li>
-            </ul>
+            {% for tag in tags %}
+                {% if tag %}
+                    <ul>
+                        <li><a href="/blog/etiket/{{ tag }}/" title="{{ tag }}">{{ tag }}</a></li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
         </aside>
     </ul>
 </div>
