@@ -47,6 +47,7 @@ class Posts(models.Model):
     categories      = models.ManyToManyField(Categories, verbose_name="Kategoriler", blank=True)
 
     # yazi icerik kismi
+    hom_content     = models.TextField(verbose_name="Anasayfa Icerik")
     content         = models.TextField(verbose_name="Icerik")
 
     # yazi yayindami kontrolu
