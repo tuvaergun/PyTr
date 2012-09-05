@@ -1,43 +1,50 @@
 <div class="span4 sidebar">
     <ul class="unstyled sidebar">
-
         <aside>
-            <h3>Hoşgeldiniz !</h3>
-            <p>Sitemizin altyapı özellikleri aşağıdaki gibidir.</p>
-            <p>Front-End   : <strong>Bootstrap</strong></p>
-            <p>Back-End    : <strong>Django</strong></p>
-            <p>Server-Side : <strong>Nginx</strong> ve <strong>Uwsgi</strong></p>
-            <p>Database    : <strong>PostgreSQL</strong> ve <strong>MongoDB</strong></p>
+            <div class="well">
+                <h3>Hoşgeldiniz !</h3>
+                <p>Sitemizin altyapı özellikleri aşağıdaki gibidir.</p>
+                <p>Front-End   : <strong>Bootstrap</strong></p>
+                <p>Back-End    : <strong>Django</strong></p>
+                <p>Server-Side : <strong>Nginx</strong> ve <strong>Uwsgi</strong></p>
+                <p>Database    : <strong>PostgreSQL</strong> ve <strong>MongoDB</strong></p>
+            </div>
         </aside>
         <aside>
-            <h3>Son Yazilar</h3>
-            {% for post in posts %}
-                <ul>
-                    {% if post %}
-                        <li class="cat-item cat-item-53"><a href="{{ post.get_absolute_url }}" title="{{ post.sef_title }}">{{ post.title }}</a></li>
+            <div class="well">
+                <h3>Son Yazilar</h3>
+                {% for post in posts %}
+                    <ul>
+                        {% if post %}
+                            <li class="cat-item cat-item-53"><a href="{{ post.get_absolute_url }}" title="{{ post.sef_title }}">{{ post.title }}</a></li>
+                        {% endif %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </aside>
+        <aside>
+            <div class="well">
+                <h3>Kategoriler</h3>
+                {% for category in categories %}
+                    {% if category %}
+                        <ul>
+                            <li class="cat-item cat-item-53"><a href="{{ category.get_absolute_url }}" title="{{ category.sef_title }}">{{ category.title }}</a> </li>
+                        </ul>
                     {% endif %}
-                </ul>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </aside>
         <aside>
-            <h3>Kategoriler</h3>
-            {% for category in categories %}
-                {% if category %}
-                    <ul>
-                        <li class="cat-item cat-item-53"><a href="{{ category.get_absolute_url }}" title="{{ category.sef_title }}">{{ category.title }}</a> </li>
-                    </ul>
-                {% endif %}
-            {% endfor %}
-        </aside>
-        <aside>
-            <h3>Etiketler</h3>
-            {% for tag in tags %}
-                {% if tag %}
-                    <ul>
-                        <li><a href="/blog/etiket/{{ tag }}/" title="{{ tag }}">{{ tag }}</a></li>
-                    </ul>
-                {% endif %}
-            {% endfor %}
+            <div class="well">
+                <h3>Etiketler</h3>
+                {% for tag in tags %}
+                    {% if tag %}
+                        <ul>
+                            <li><a href="/blog/etiket/{{ tag }}/" title="{{ tag }}">{{ tag }}</a></li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </aside>
     </ul>
 </div>

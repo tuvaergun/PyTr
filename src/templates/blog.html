@@ -1,4 +1,6 @@
 <div class="span8 blog-content">
+    {% load pagination_tags %}
+    {% autopaginate posts 5 %}
     {% for post in posts %}
         {% if post %}
             <article>
@@ -23,13 +25,6 @@
             </article>
         {% endif %}
     {% endfor %}
-
-
-    <ul class="pager">
-        <li class="previous">
-            <a href="http://www.pytr.org/page/2/" >&#x2190; Diger Yazilar</a>			  </li>
-        <li class="next">
-        </li>
-    </ul>
+    {% paginate %}
 
 </div>
