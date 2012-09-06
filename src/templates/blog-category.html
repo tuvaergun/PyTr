@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block blog %}
+    <div class="span8 blog-content">
+        {% load pagination_tags %}
+        {% autopaginate posts 5 %}
+        {% for post in posts %}
+            {% if post %}
+                <article>
+                    <div class="article-head-and-content">
+
+                        <div class="page-header">
+                            <h1><a href="{{ post.get_absolute_url }}">{{ post.sef_title }}</a><br /><small>{{ post.created }}</small></h1>
+                        </div>
+                        <div class="post_content">
+                            {{ post.hom_content|safe }}
+                        </div>
+                        <hr />
+                        <p class="muted post-info">
+                        <p>Kategoriler : {% for category in post.categories.all %}<a href="{{ category.get_absolute_url }}" class="label label-info">{{ category.title }}</a>&nbsp;{% endfor %}</p>
+                        <p>Etiketler : {% for tag in post.get_tags %}<a href="/blog/etiket/{{ tag }}/" class="label label-info">{{ tag }}</a>&nbsp;{% endfor %}</p>
+                        </p>
+                    </div>
+                    <div class="well">
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-info">Devamini Oku &#x2192;</a>&nbsp;
+                        <a href="{{ post.get_absolute_url }}#disqus_thread" class="btn"><span class="dsq-postid">Yorumlar</span></a>
+                    </div>
+                </article>
+            {% endif %}
+        {% endfor %}
+        {% paginate %}
+
+    </div>
+{% endblock %}

@@ -27,7 +27,7 @@ kitap, Django, Spyder, Django nedir, tkinter, py, *.py, pyton, pytr" />
     <a href="{{ site.domain }}" id="logo"><img src="{{ STATIC_URL }}img/logo.png" alt="Logo"></a>
     {% include "navbar.html" %}
     <div class="row"><div class="clearfix-header-content visible-phone"></div>
-        {% include "blog.html" %}
+        {% block blog %}{% endblock %}
         {% include "sidebar.html" %}
         {% include "footer.html" %}
     </div>

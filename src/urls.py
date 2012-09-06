@@ -16,8 +16,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^$', 'blog.views.blogHome', name="bloghome"),
     url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^blog/', include('blog.urls'))
+    (r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
 )
 
 if DEBUG:
