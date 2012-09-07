@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block metas %}
+    <meta name="keywords" content="python, python türkiye, pytr, python dersleri, {% for tag in post.get_tags %}{{ tag }}, {% endfor %}python programlama" />
+    <meta name="description" content="Python Türkiye - {{ post.sef_description }}" />
+{% endblock %}
+{% block extracss %}<link href="{{ STATIC_URL }}prettify/prettify.css" rel="stylesheet">{% endblock %}
 {% block blog %}
     <div class="span8 blog-content">
         <article>
@@ -42,5 +48,5 @@
     <script src="{{ STATIC_URL }}js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-collapse.js" type="text/javascript" charset="utf-8"></script>
     <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
-    <script src="{{ STATIC_URL }}js/prettify.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}prettify/prettify.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}

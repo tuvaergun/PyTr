@@ -22,3 +22,4 @@ Mobil theme
 Seo application
 Hard code removing
 Template dir moving and other templates add
+Meta code

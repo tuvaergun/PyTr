@@ -37,7 +37,7 @@ def blogCategory(request, slug):
 
 def blogTag(request, tag_name):
     tag         = get_object_or_404(Tag, name=tag_name)
-    post        = TaggedItem.objects.get_by_model(Posts, tag).filter(isonline=True)
+    post        = TaggedItem.objects.get_by_model(Posts, tag).filter(isonline=True).order_by("-created")
 
     posts       = Posts.objects.order_by("-created").filter(isonline=True)[:5]
     categories  = Categories.objects.order_by("title")
