@@ -1,6 +1,6 @@
 PyTr
 ========
-Another Django project.
+Another Django project. http://pytrdeploy.herokuapp.com/
 
 Installation
 ------------
