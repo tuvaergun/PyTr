@@ -23,4 +23,4 @@ Seo application
 Hard code removing
 Template dir moving and other templates add
 Meta code
-Hero deploy
+Heroku deploy
