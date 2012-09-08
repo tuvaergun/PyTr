@@ -16,10 +16,10 @@ Halit Alptekin, <info[@]halitalptekin.com>
 
 Todo
 ----
-Error messages<br>
-Link application<br>
-Mobil theme<br>
-Seo application<br>
-Hard code removing<br>
-Template dir moving and other templates add<br>
-Meta code<br>
+Error messages
+Link application
+Mobil theme
+Seo application
+Hard code removing
+Template dir moving and other templates add
+Meta code

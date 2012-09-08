@@ -7,3 +7,4 @@ urlpatterns = patterns('blog.views',
     url(r'^etiket/(?P<tag_name>[-\w\s]+)/','blogTag', name="blogtag"),
 
 )
+
