@@ -2,7 +2,6 @@
 LICENSE
 README.rst
 setup.py
-src/__init__.py
 src/manage.py
 src/settings.py
 src/settings.pyc
@@ -15,8 +14,12 @@ src/blog/__init__.py
 src/blog/__init__.pyc
 src/blog/admin.py
 src/blog/admin.pyc
+src/blog/feeds.py
+src/blog/feeds.pyc
 src/blog/models.py
 src/blog/models.pyc
+src/blog/sitemaps.py
+src/blog/sitemaps.pyc
 src/blog/tests.py
 src/blog/urls.py
 src/blog/urls.pyc
