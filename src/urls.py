@@ -5,7 +5,7 @@ from django.contrib import admin
 
 from settings import DEBUG , MEDIA_ROOT
 from blog.feeds import RSS_URLS
-
+from blog.sitemaps import SITEMAPS_URLS
 admin.autodiscover()
 
 
@@ -25,3 +25,4 @@ if DEBUG:
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT }),
     )
 urlpatterns += RSS_URLS
+urlpatterns += SITEMAPS_URLS
