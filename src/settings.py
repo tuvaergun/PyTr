@@ -1,6 +1,6 @@
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 DOCUMENT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -30,7 +30,7 @@ USE_TZ = True
 
 TEMPLATE_DIRS = ( os.path.join(DOCUMENT_ROOT, 'templates'),)
 MEDIA_ROOT = os.path.join(DOCUMENT_ROOT, 'media')
-#STATIC_ROOT = os.path.join(DOCUMENT_ROOT, 'static')
+STATIC_ROOT = os.path.join(DOCUMENT_ROOT, 'static')
 
 
 MEDIA_URL = '/media/'
@@ -91,7 +91,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     'django.contrib.sitemaps',
-    # Uncomment the next line to enable admin documentation:
+    # Uncomment the next line /enc28j60-ve-arduino/#.UEx1vFLkDFAto enable admin documentation:
     # 'django.contrib.admindocs',
     'blog',
     'tagging',
