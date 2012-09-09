@@ -11,7 +11,7 @@
         </aside>
         <aside>
             <div class="well">
-                <h3>Son Yazilar</h3>
+                <h3>Son Blog Yazilari</h3>
                 {% for post in posts %}
                     <ul>
                         {% if post %}
@@ -23,7 +23,7 @@
         </aside>
         <aside>
             <div class="well">
-                <h3>Kategoriler</h3>
+                <h3>Blog Kategorileri</h3>
                 {% for category in categories %}
                     {% if category %}
                         <ul>
@@ -35,7 +35,7 @@
         </aside>
         <aside>
             <div class="well">
-                <h3>Etiketler</h3>
+                <h3>Blog Etiketleri</h3>
                 {% for tag in post.get_tags %}
                     {% if tag %}
                         <ul>

@@ -5,11 +5,15 @@ from models import *
 from django.contrib.sites.models import Site
 from django.template import RequestContext
 from tagging.models import Tag, TaggedItem
+from sources.models import Sources
+from sources.models import Categories as SourcesCategories
 
 
 def blogHome(request):
     posts       = Posts.objects.order_by("-created").filter(isonline=True)
     categories  = Categories.objects.order_by("title")
+    sources     = Sources.objects.order_by("-created").filter(isonline=True)[:5]
+    sources_cat = SourcesCategories.objects.order_by("title")
 
     site        = Site.objects.get_current()
     return render_to_response('index.html', locals(), RequestContext(request))
@@ -29,6 +33,8 @@ def blogCategory(request, slug):
 
     posts       = Posts.objects.filter(categories = category).filter(isonline=True).order_by("-created")
     categories  = Categories.objects.order_by("title")
+    sources     = Sources.objects.order_by("-created").filter(isonline=True)[:5]
+    sources_cat = SourcesCategories.objects.order_by("title")
     tags        = Tag.objects.all().order_by("name")[:10]
 
     site        = Site.objects.get_current()
@@ -40,6 +46,8 @@ def blogTag(request, tag_name):
 
     posts       = Posts.objects.order_by("-created").filter(isonline=True)[:5]
     categories  = Categories.objects.order_by("title")
+    sources     = Sources.objects.order_by("-created").filter(isonline=True)[:5]
+    sources_cat = SourcesCategories.objects.order_by("title")
     tags        = Tag.objects.all().order_by("name")[:10]
 
     site        = Site.objects.get_current()
