@@ -12,7 +12,7 @@
         <aside>
             <div class="well">
                 <h3>Son Kaynaklar</h3>
-                {% for source in sources %}
+                {% for source in source_list %}
                     <ul>
                         {% if source %}
                             <li class="cat-item cat-item-53"><a href="{{ source.get_absolute_url }}" title="{{ source.sef_title }}">{{ source.title }}</a></li>

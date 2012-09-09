@@ -6,6 +6,8 @@ from django.contrib import admin
 from settings import MEDIA_ROOT, STATIC_ROOT
 from blog.feeds import RSS_URLS
 from blog.sitemaps import SITEMAPS_URLS
+from sources.feeds import SOURCES_RSS_URLS
+from sources.sitemaps import SOURCES_SITEMAPS_URLS
 admin.autodiscover()
 
 
@@ -25,3 +27,5 @@ urlpatterns = patterns('',
 
 urlpatterns += RSS_URLS
 urlpatterns += SITEMAPS_URLS
+urlpatterns += SOURCES_RSS_URLS
+urlpatterns += SOURCES_SITEMAPS_URLS
