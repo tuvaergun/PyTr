@@ -28,8 +28,8 @@ kitap, Django, Spyder, Django nedir, tkinter, py, *.py, pyton, pytr" />
     {% include "navbar.html" %}
     <div class="row"><div class="clearfix-header-content visible-phone"></div>
         {% block blog %}{% endblock %}
-        {% include "sidebar.html" %}
-        {% include "footer.html" %}
+        {% block sidebar %}{% include "sidebar.html" %}{% endblock %}
+        {% block footer %}{% include "footer.html" %}{% endblock %}
     </div>
 </div>
 {% block extrajs %}{% endblock %}

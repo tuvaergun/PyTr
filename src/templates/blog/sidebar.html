@@ -33,17 +33,5 @@
                 {% endfor %}
             </div>
         </aside>
-        <aside>
-            <div class="well">
-                <h3>Etiketler</h3>
-                {% for tag in post.get_tags %}
-                    {% if tag %}
-                        <ul>
-                            <li><a href="/blog/etiket/{{ tag }}/" title="{{ tag }}">{{ tag }}</a></li>
-                        </ul>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </aside>
     </ul>
 </div>

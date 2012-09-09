@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% block title %}{{ category.title }}{% endblock %}
+{% block metas %}
+    <meta name="keywords" content="python, python türkiye, pytr, python dersleri, python programlama" />
+    <meta name="description" content="Python Türkiye - {{ category.sef_description }}" />
+{% endblock %}
 {% block blog %}
     <div class="span8 blog-content">
         {% load pagination_tags %}
         {% autopaginate posts 5 %}
-        {% for post in post %}
+        {% for post in posts %}
             {% if post %}
                 <article>
                     <div class="article-head-and-content">
@@ -31,3 +36,4 @@
 
     </div>
 {% endblock %}
+{% block sidebar %} {% include "blog/sidebar.html" %} {% endblock %}

@@ -7,14 +7,14 @@ from django.template import RequestContext
 from tagging.models import Tag, TaggedItem
 
 
-def blogHome(request):
-    posts       = Posts.objects.order_by("-created").filter(isonline=True)
-    categories  = Categories.objects.order_by("title")
+def sourcesHome(request):
+    sources       = Sources.objects.order_by("-created").filter(isonline=True)
+    categories    = Categories.objects.order_by("title")
 
-    site        = Site.objects.get_current()
-    return render_to_response('index.html', locals(), RequestContext(request))
+    site          = Site.objects.get_current()
+    return render_to_response('sources/index.html', locals(), RequestContext(request))
 
-def blogPost(request, slug):
+def sourcesPost(request, slug):
     post        = get_object_or_404(Posts, slug=slug)
 
     posts       = Posts.objects.order_by("-created").filter(isonline=True)[:5]
@@ -22,9 +22,9 @@ def blogPost(request, slug):
     tags        = Tag.objects.all().order_by("name")[:10]
 
     site        = Site.objects.get_current()
-    return render_to_response('blog/blog-post.html', locals(), RequestContext(request))
+    return render_to_response('sources/sources-post.html', locals(), RequestContext(request))
 
-def blogCategory(request, slug):
+def sourcesCategory(request, slug):
     category    = get_object_or_404(Categories, slug=slug)
 
     posts       = Posts.objects.filter(categories = category).filter(isonline=True).order_by("-created")
@@ -32,9 +32,9 @@ def blogCategory(request, slug):
     tags        = Tag.objects.all().order_by("name")[:10]
 
     site        = Site.objects.get_current()
-    return render_to_response('blog/blog-category.html', locals(), RequestContext(request))
+    return render_to_response('sources/sources-category.html', locals(), RequestContext(request))
 
-def blogTag(request, tag_name):
+def sourcesTag(request, tag_name):
     tag         = get_object_or_404(Tag, name=tag_name)
     post        = TaggedItem.objects.get_by_model(Posts, tag).filter(isonline=True).order_by("-created")
 
@@ -43,4 +43,4 @@ def blogTag(request, tag_name):
     tags        = Tag.objects.all().order_by("name")[:10]
 
     site        = Site.objects.get_current()
-    return render_to_response('blog/blog-tag.html', locals(), RequestContext(request))
+    return render_to_response('sources/sources-tag.html', locals(), RequestContext(request))

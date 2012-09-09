@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^$', 'blog.views.blogHome', name="bloghome"),
     url(r'^admin/', include(admin.site.urls)),
     (r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
+    (r'^kaynak/', include('sources.urls', namespace='sources', app_name='sources')),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT }),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': STATIC_ROOT }),
 )
