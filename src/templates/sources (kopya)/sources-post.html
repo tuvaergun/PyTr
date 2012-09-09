@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{{ source.title }}{% endblock %}
+{% block metas %}
+    <meta name="keywords" content="python, python türkiye, pytr, python dersleri, {% for tag in source.get_tags %}{{ tag }}, {% endfor %}python programlama" />
+    <meta name="description" content="Python Türkiye - {{ source.sef_description }}" />
+{% endblock %}
+{% block extracss %}<link href="{{ STATIC_URL }}prettify/prettify.css" rel="stylesheet">{% endblock %}
+{% block sidebar %} {% include "sources/sidebar-with-tags.html" %} {% endblock %}
+{% block blog %}
+    <div class="span8 blog-content">
+        <div class="well">
+            <h5>{% if source.title|length >= 40 %} {{ source.title|slice:":40" }}... {% else %} {{ source.title }} {% endif %}</h5>
+            <p>{{ source.description }}</p>
+            <p><a href="{{ source.link }}" rel="nofollow" class="btn btn-primary">Git</a></p>
+        </div>
+        <div class="well">
+            <p class="muted post-info">
+            <p>Kategoriler : {% for category in source.categories.all %}<a href="{{ category.get_absolute_url }}" class="label label-info">{{ category.title }}</a>&nbsp;{% endfor %}</p>
+            <p>Etiketler : {% for tag in source.get_tags %}<a href="/kaynak/etiket/{{ tag }}/" class="label label-info">{{ tag }}</a>&nbsp;{% endfor %}</p>
+        </div>
+        <div class="well">
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_preferred_1"></a>
+                <a class="addthis_button_preferred_2"></a>
+                <a class="addthis_button_preferred_3"></a>
+                <a class="addthis_button_preferred_4"></a>
+                <a class="addthis_button_preferred_5"></a>
+                <a class="addthis_button_preferred_6"></a>
+                <a class="addthis_button_preferred_7"></a>
+                <a class="addthis_button_preferred_8"></a>
+                <a class="addthis_button_preferred_9"></a>
+                <a class="addthis_button_preferred_10"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
+        </div>
+        <div class="well">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'halitalptekin'; // required: replace example with your forum shortname
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Lutfen Javascripti Etkinlestiriniz <a href="http://disqus.com/?ref_noscript">Disqus</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">Tesekkurler  <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <script src="{{ STATIC_URL }}js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-collapse.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-504c6d593daec57a"></script>
+{% endblock %}

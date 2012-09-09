@@ -33,5 +33,17 @@
                 {% endfor %}
             </div>
         </aside>
+        <aside>
+            <div class="well">
+                <h3>Kaynak Etiketleri</h3>
+                {% for tag in source.get_tags %}
+                    {% if tag %}
+                        <ul>
+                            <li><a href="/kaynak/etiket/{{ tag }}/" title="{{ tag }}">{{ tag }}</a></li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </aside>
     </ul>
 </div>
