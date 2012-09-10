@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from unidecode import unidecode
 from tagging.fields import TagField, Tag
+from ittybitty.models import IttyBittyURL
 
 class Categories(models.Model):
     # kategori basligi ve sef turu
@@ -108,6 +109,11 @@ class Sources(models.Model):
         super(Sources, self).save(*args, **kwargs)
 
         self.sef_description = unidecode(self.description)
+        super(Sources, self).save(*args, **kwargs)
+
+        p = IttyBittyURL(url=self.link)
+        p.save()
+        self.link = p.get_shortcut()
         super(Sources, self).save(*args, **kwargs)
 
     def get_tags(self):

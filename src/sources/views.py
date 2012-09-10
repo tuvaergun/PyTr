@@ -29,6 +29,7 @@ def sourcesCategory(request, slug):
     category      = get_object_or_404(Categories, slug=slug)
 
     sources       = Sources.objects.filter(categories = category).filter(isonline=True).order_by("-created")
+    source_list   = Sources.objects.order_by("-created").filter(isonline=True)[:5]
     categories    = Categories.objects.order_by("title")
     tags          = Tag.objects.all().order_by("name")[:10]
 
@@ -38,6 +39,7 @@ def sourcesCategory(request, slug):
 def sourcesTag(request, tag_name):
     tag           = get_object_or_404(Tag, name=tag_name)
     sources       = TaggedItem.objects.get_by_model(Sources, tag).filter(isonline=True).order_by("-created")
+    source_list   = Sources.objects.order_by("-created").filter(isonline=True)[:5]
 
     categories    = Categories.objects.order_by("title")
     tags          = Tag.objects.all().order_by("name")[:10]

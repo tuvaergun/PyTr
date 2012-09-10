@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='pytr',
-    version='0.2.2',
+    version='0.2.3',
     packages=['src', 'src.blog'],
     url='http://www.pytr.org',
     license='GPL',
