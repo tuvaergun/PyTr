@@ -1,7 +1,6 @@
-from django.shortcuts import HttpResponse
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
-from models import *
+from blog.models import Posts, Categories
 from django.contrib.sites.models import Site
 from django.template import RequestContext
 from tagging.models import Tag, TaggedItem
