@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     (r'^kaynak/', include('sources.urls', namespace='sources', app_name='sources')),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT }),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': STATIC_ROOT }),
+    url(r'^api/', include('api.urls', namespace='autoapi')),
 )
 
 urlpatterns += RSS_URLS
