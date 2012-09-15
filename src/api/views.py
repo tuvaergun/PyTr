@@ -86,20 +86,40 @@ def root(request, format=None):
 
 
 def list(request, app_name, model, format=None):
-    queryset = get_model(app_name, model)._default_manager.all()
-    context = {'request': request, 'format': format}
-    format = format or 'html'
-    content = APISerializer().serialize(format, queryset, context)
-    if format == 'html':
-        content = '<meta charset="utf-8">' + content
-    return HttpResponse(content, mime_types[format])
+    if app_name == "auth" and model == "user" or model == "permission" or model == "group":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    if app_name == "admin" and model == "logentry":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    if app_name == "sessions" and model == "session":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    else:
+        queryset = get_model(app_name, model)._default_manager.all()
+        context = {'request': request, 'format': format}
+        format = format or 'html'
+        content = APISerializer().serialize(format, queryset, context)
+        if format == 'html':
+            content = '<meta charset="utf-8">' + content
+        return HttpResponse(content, mime_types[format])
 
 
 def instance(request, app_name, model, pk, format=None):
-    instance = get_model(app_name, model)._default_manager.get(pk=pk)
-    context = {'request': request, 'format': format}
-    format = format or 'html'
-    content = APISerializer().serialize(format, instance, context)
-    if format == 'html':
-        content = '<meta charset="utf-8">' + content
-    return HttpResponse(content, mime_types[format])
+    if app_name == "auth" and model == "user" or model == "permission" or model == "group":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    if app_name == "admin" and model == "logentry":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    if app_name == "sessions" and model == "session":
+        content = "Yetkiniz Yok!"
+        return HttpResponse(content)
+    else:
+        instance = get_model(app_name, model)._default_manager.get(pk=pk)
+        context = {'request': request, 'format': format}
+        format = format or 'html'
+        content = APISerializer().serialize(format, instance, context)
+        if format == 'html':
+            content = '<meta charset="utf-8">' + content
+        return HttpResponse(content, mime_types[format])

@@ -1,3 +1,4 @@
 unidecode
 django-tagging
 django-pagination
+django-serializers
